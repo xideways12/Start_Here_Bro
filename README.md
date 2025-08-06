@@ -115,7 +115,7 @@ USE your_db;
 
 ---
 
-####More Git
+#### More Git
 ```bash
 # Create a new local Git repository
 git init  # Start version control in current folder
@@ -309,4 +309,65 @@ git push origin new-feature
 
 ---
 
-Would you like me to create a downloadable **`.md` file or PDF** of this? I can also bundle it with other tech kickstarts like React, Flask, Docker.
+## 🟢 **Git Kickstart Advanced Commands**
+
+```bash
+# 1️⃣ STASH: Save uncommitted changes (clean working directory)
+git stash save "WIP: My changes"
+
+# See list of stashes
+git stash list
+
+# Re-apply most recent stash
+git stash apply
+
+# Apply and remove stash
+git stash pop
+
+# 2️⃣ CHERRY-PICK: Apply a specific commit to your current branch
+# (Example: commit hash = abc123)
+git cherry-pick abc123
+
+# 3️⃣ REBASE: Replay your commits onto another base branch
+# (Example: rebase current branch onto 'main')
+git fetch origin
+git rebase origin/main
+
+# Abort rebase if conflicts are too messy
+git rebase --abort
+
+# Continue rebase after resolving conflicts
+git rebase --continue
+
+# 4️⃣ RESET: Move HEAD and optionally working directory
+# --soft keeps changes staged
+git reset --soft HEAD~1
+
+# --mixed keeps changes unstaged (default)
+git reset --mixed HEAD~1
+
+# --hard discards changes permanently
+git reset --hard HEAD~1
+
+# 5️⃣ FETCH: Get latest commits from remote WITHOUT merging
+git fetch origin
+
+# See what changed compared to your branch
+git log HEAD..origin/main --oneline
+
+# Merge fetched changes manually
+git merge origin/main
+```
+
+---
+
+### ⚡ **Quick Tips**
+
+✅ `stash` = Hide your local changes temporarily
+✅ `cherry-pick` = Grab *one commit* from anywhere
+✅ `rebase` = Replay commits as if you branched later (linear history)
+✅ `reset` = Move branch pointer, optionally discard work
+✅ `fetch` = Sync remote refs without changing your files
+
+---
+
